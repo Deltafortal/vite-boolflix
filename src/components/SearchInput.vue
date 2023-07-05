@@ -18,6 +18,12 @@
   
     <!--- SearchBar ---->
    
+    <form action="">
+
+        <input type="text">
+        
+        <input type="submit" value="cerca">
+    </form>
 
 
 </template>

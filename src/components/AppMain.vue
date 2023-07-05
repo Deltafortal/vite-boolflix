@@ -32,9 +32,12 @@ export default {
     <SearchInput />
 
 
+
     <!----- Main ------->
     <main>
-
+        <ul>
+            <li v-for="movie in store.movies"> {{ movie.original_title }}</li>
+        </ul>
 
     </main>
 
