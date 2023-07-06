@@ -5,13 +5,14 @@
 // Import
 import SearchInput from './SearchInput.vue';
 import axios from 'axios';
+import AppCard from './AppCard.vue';
 import { store } from '../data/store';
 import { api } from '../data/index';
 
 
 
 export default {
-    components: {SearchInput},
+    components: {SearchInput , AppCard},
     data() {
         return {
             store,
@@ -67,12 +68,12 @@ export default {
     <main>
         <h2> Movies</h2>
         <ul>
-            <li v-for="movie in store.movies" :key="movie.id"> {{ movie.original_title }}</li>
+            <AppCard v-for="movie in store.movies" :key="movie.id" :item="movie" />
         </ul>
 
         <h2> Series</h2>
         <ul>
-            <li v-for="serie in store.series" :key="serie.id"> {{ serie.original_name }}</li>
+            <AppCard v-for="serie in store.series" :key="serie.id" :item="serie"/>
         </ul>
 
     </main>
