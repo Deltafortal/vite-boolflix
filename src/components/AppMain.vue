@@ -68,7 +68,7 @@ export default {
     <main>
         <h2> Movies</h2>
         <ul>
-            <AppCard v-for="movie in store.movies" :key="movie.id" :item="movie" />
+            <AppCard v-for="movie in store.movies" :key="movie.id" :item="movie"/>
         </ul>
 
         <h2> Series</h2>
