@@ -28,10 +28,12 @@ export default {
             return url.href
         },
         getVote() {
-            item.vote_average = item.vote_average / 2;
-            return item.vote_average;
+            this.item.vote_average = this.item.vote_average / 2;
+
+            return this.item.vote_average
         }
-    }
+    },
+    
 
 };
 
@@ -60,7 +62,7 @@ export default {
                 <div v-else>{{ item.original_language }}</div>
             </div>
             <div> {{ getVote }}</div>
-            <i class="fa-solid fa-star"></i>
+            
         </div>
         
     </div>
