@@ -8,7 +8,6 @@ export default {
     data() {
         return {
             posterUri: 'https://image.tmdb.org/t/p/w342',
-            vote: 0,
         }
     },
 
@@ -28,11 +27,14 @@ export default {
             return url.href
         },
         getVote() {
-            this.item.vote_average = this.item.vote_average / 2;
-
-            return this.item.vote_average
-        }
+            return Math.ceil(this.item.vote_average / 2)
+        },
     },
+    methods: {
+        getStars(n) {
+            return n <= this.getVote ? 'fas' : 'far'
+        }
+    }
     
 
 };
@@ -61,7 +63,8 @@ export default {
                 <img v-if="hasFlag" :src="imgUrl" :alt="item.original_language">
                 <div v-else>{{ item.original_language }}</div>
             </div>
-            <div> {{ getVote }}</div>
+
+            <div> <i v-for="n in 5" :class="getStars(n)" class="fa-star"></i> </div>
             
         </div>
         
