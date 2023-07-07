@@ -55,4 +55,5 @@ export default {
 
 @use './assets/scss/style.scss';
 
+
 </style>

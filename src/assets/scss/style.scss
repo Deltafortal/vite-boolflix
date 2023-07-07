@@ -1,1 +1,22 @@
 @use './vars' as *;
+
+
+/* css Reset */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $mainCol;
+}
+
+
+/* Utils */
+
+.container {
+    width: 1680px;
+    margin: 0 auto;
+}
