@@ -66,15 +66,19 @@ export default {
 
     <!----- Main ------->
     <main>
-        <h2> Movies</h2>
-        <ul>
-            <AppCard v-for="movie in store.movies" :key="movie.id" :item="movie"/>
-        </ul>
 
-        <h2> Series</h2>
-        <ul>
+        <!-- Movies -->
+        <h2>Movies</h2>
+        <div class="movies">
+            <AppCard v-for="movie in store.movies" :key="movie.id" :item="movie"/>
+        </div>
+
+
+        <!-- Series -->
+        <h2>Series</h2>
+        <div class="series">
             <AppCard v-for="serie in store.series" :key="serie.id" :item="serie"/>
-        </ul>
+        </div>
 
     </main>
 
@@ -88,8 +92,15 @@ export default {
 
 <!---------------Style -------------->
 
-<style scoped>
+<style lang=scss scoped>
 
+    .movies,.series {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        gap: 20px;
+    }
 
 
 </style>

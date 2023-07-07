@@ -84,9 +84,11 @@ export default {
 
 
 .card {
+    flex-basis: 25%;
     position: relative;
-    width: 300px;
-    height: 400px;
+    width: 342px;
+    height: 513px;
+    margin-bottom: 20px;
 }
 .poster {
     position: absolute;
