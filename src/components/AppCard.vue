@@ -8,6 +8,7 @@ export default {
     data() {
         return {
             posterUri: 'https://image.tmdb.org/t/p/w342',
+            overlay: false,
         }
     },
 
@@ -29,10 +30,24 @@ export default {
         getVote() {
             return Math.ceil(this.item.vote_average / 2)
         },
+        addOverlay() {
+
+            if(this.overlay === true) {
+                return 'overlay';
+            } else {
+                return '';
+            }
+
+        }
+        
     },
     methods: {
         getStars(n) {
             return n <= this.getVote ? 'fas' : 'far'
+        },
+
+        toggleOverlay() {
+            return this.overlay != this.overlay
         }
     }
     
@@ -52,11 +67,11 @@ export default {
 
 <template>
   
-    <div class="card">
+    <div class="card" @mouseover="toggleOverlay" @mouseleave="toggleOverlay">
 
         <img class="poster" :src="`${posterUri}${item.poster_path}`" :alt="item.title || item.name">
         
-        <div class="content">
+        <div class="content" :class="addOverlay">
             <h2>{{ item.title || item.name }}</h2>
             <h4> {{ item.original_title || item.original_name }}</h4>
             <div> 
@@ -89,6 +104,7 @@ export default {
     width: 342px;
     height: 513px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 .poster {
     position: absolute;
@@ -100,12 +116,24 @@ export default {
 }
 
 .content {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.603);
     color: white;
+    height: 100%;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+
+    .img {
+        width: 60px;
+    }
+}
+
+
+.content.overlay {
+    display: block;
 }
 
 </style>
